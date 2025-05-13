@@ -1,3 +1,5 @@
+package br.com.unemat.ryan.myapplication;
+
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -6,11 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.view.MenuItem;
 
-import br.com.unemat.ryan.myapplication.ActivityMain;
-import br.com.unemat.ryan.myapplication.Kg;
-import br.com.unemat.ryan.myapplication.KidRegistry;
-import br.com.unemat.ryan.myapplication.R;
-
 public class NavMenu extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
@@ -18,7 +15,7 @@ public class NavMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.menu.bottom_nav_menu); // Substitua com o layout correto
+        setContentView(R.layout.activity_main);  // Layout correto da NavMenu
 
         bottomNavigationView = findViewById(R.id.dashbottom_navigation);
 
@@ -28,19 +25,13 @@ public class NavMenu extends AppCompatActivity {
                 int id = item.getItemId();
 
                 if (id == R.id.nav_dashboard) {
-                    // Vai para a ActivityMain
-                    Intent intent = new Intent(NavMenu.this, ActivityMain.class);
-                    startActivity(intent);
+                    startActivity(new Intent(NavMenu.this, ActivityMain.class));  // Redireciona para ActivityMain
                     return true;
                 } else if (id == R.id.nav_register) {
-                    // Vai para KidRegistry
-                    Intent intent = new Intent(NavMenu.this, KidRegistry.class);
-                    startActivity(intent);
+                    startActivity(new Intent(NavMenu.this, KidRegistry.class));  // Redireciona para KidRegistry
                     return true;
                 } else if (id == R.id.nav_settings) {
-                    // Vai para Kg
-                    Intent intent = new Intent(NavMenu.this, Kg.class);
-                    startActivity(intent);
+                    startActivity(new Intent(NavMenu.this, Kg.class));  // Redireciona para Kg
                     return true;
                 }
 
